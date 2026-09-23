@@ -28,7 +28,7 @@ kampus-etkinlik/
 ## Yayına alma
 
 - Deploy: [Vercel](https://vercel.com) — Framework: `Other`, Root Directory: proje kökü (`kampus-etkinlik/`)
-- Canlı adres: _buraya Vercel URL'i eklenecek_
+- Canlı adres: https://web-tech-preflight-beryl.vercel.app/
 
 ## Git
 
