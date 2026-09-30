@@ -59,3 +59,23 @@ Nav menüsü beş sayfada da aynı: `Ana Sayfa · Etkinlikler · Ekle · Güncel
 - [x] Telefonda yatay kaydırma ve taşma yok
 - [x] Kartlar telefonda tek sütun, menü sığıyor
 - [x] Boş form gönderince hata belli (`:user-invalid`)
+
+## Yayına alma
+
+- Deploy: [Vercel](https://vercel.com) — Framework: `Other`
+- Root Directory: `kampus-etkinlik/sprint2`
+- Canlı adres: https://web-tech-preflight-beryl.vercel.app/
+
+## Git
+
+```bash
+git add .
+git commit -m "Sprint2 yapıldı"
+git tag sprint-02
+git push
+git push --tags
+```
+
+## Teslim
+
+GitHub repo linki + `sprint-02` etiketi + Vercel adresi.
