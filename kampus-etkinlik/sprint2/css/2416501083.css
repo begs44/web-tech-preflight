@@ -166,18 +166,18 @@ th {
   margin-top: var(--bosluk-s);
 }
 
-.detay dl {
+dl {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.35rem var(--bosluk-m);
   margin: 0 0 var(--bosluk-m) 0;
 }
 
-.detay dl dt {
+dl dt {
   font-weight: 600;
 }
 
-.detay dl dd {
+dl dd {
   margin: 0;
 }
 
