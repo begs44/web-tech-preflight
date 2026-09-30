@@ -14,7 +14,7 @@ kampus-etkinlik/
     etkinlik-guncelle.html
   sprint2/                    ← Sprint 2 teslimi (CSS + responsive, sprint-02 etiketi)
     css/
-      numaran.css
+      2416501083.css
     index.html
     etkinlikler.html
     etkinlik-detay.html
@@ -36,7 +36,7 @@ kampus-etkinlik/
 
 ## Sprint 2 — CSS ve Responsive (`sprint2/`)
 
-- `sprint2/css/numaran.css`: `--no: 2416501083` → `--ton: mod(--no, 360) = 3` → `--renk-ana`/`--renk-zemin` bu tondan üretiliyor; son hane `3` → `--font: "Trebuchet MS"`.
+- `sprint2/css/2416501083.css`: `--no: 2416501083` → `--ton: mod(--no, 360) = 3` → `--renk-ana`/`--renk-zemin` bu tondan üretiliyor; son hane `3` → `--font: "Trebuchet MS"`.
 - Sprint 1'deki geçici çerçeveli etkinlik tablosu kalktı; etkinlikler artık `<section class="etkinlik-listesi"> > <article>` kartları (`display: grid`), mobilde tek sütun, geniş ekranda çok sütun.
 - "Ayın Programı" gerçek veri tablosu olduğu için `<table>` olarak kaldı, taşarsa yatay kaydırma sarmalayıcısı var.
 - `etkinlik-detay.html`: afiş ve künye (`dl`) mobilde alt alta, geniş ekranda yan yana (`.detay` grid).
