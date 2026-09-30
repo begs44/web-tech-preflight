@@ -1,0 +1,265 @@
+/* Bengüsu İlhan — 2416501083 */
+:root {
+  --no: 2416501083;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-ana-koyu: hsl(var(--ton) 65% 28%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --renk-yazi: #1a1a1a;
+  --renk-cizgi: #ddd;
+  --renk-hata: crimson;
+  --font: "Trebuchet MS", sans-serif;
+  --bosluk-s: 0.5rem;
+  --bosluk-m: 1rem;
+  --bosluk-l: 2rem;
+  --kose: 8px;
+  --genislik-max: 1000px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--renk-yazi);
+  background: var(--renk-zemin);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Header ve menü */
+header {
+  background: var(--renk-ana);
+  color: #fff;
+  padding: var(--bosluk-m);
+}
+
+header p {
+  margin: 0 0 var(--bosluk-s) 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-s) var(--bosluk-m);
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+
+header nav a:hover,
+header nav a:focus {
+  text-decoration: underline;
+}
+
+/* Ana içerik */
+main {
+  max-width: var(--genislik-max);
+  margin: 0 auto;
+  padding: var(--bosluk-l) var(--bosluk-m);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+footer {
+  text-align: center;
+  padding: var(--bosluk-m);
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Etkinlik kartları: section > article, mobilde tek sütun, geniş ekranda çok sütun */
+.etkinlik-listesi {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bosluk-m);
+  margin: var(--bosluk-m) 0;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .etkinlik-listesi {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.etkinlik-listesi > article {
+  background: #fff;
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+
+.etkinlik-listesi > article h2,
+.etkinlik-listesi > article h3 {
+  margin-top: 0;
+}
+
+.etkinlik-listesi a {
+  color: var(--renk-ana);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.etkinlik-listesi a:hover {
+  text-decoration: underline;
+}
+
+/* Ayın Programı: gerçek veri tablosu, taşarsa yatayda kaydırılır */
+.tablo-sarici {
+  overflow-x: auto;
+  margin: var(--bosluk-m) 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 420px;
+}
+
+caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: var(--bosluk-s);
+}
+
+th, td {
+  border: 1px solid var(--renk-cizgi);
+  padding: 0.5rem var(--bosluk-s);
+  text-align: left;
+}
+
+th {
+  background: var(--renk-ana);
+  color: #fff;
+}
+
+/* Etkinlik detay sayfası: mobilde alt alta, geniş ekranda yan yana */
+.detay figure {
+  margin: 0 0 var(--bosluk-m) 0;
+}
+
+.detay figure img {
+  border-radius: var(--kose);
+  background: #eee;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.detay figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: var(--bosluk-s);
+}
+
+.detay dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem var(--bosluk-m);
+  margin: 0 0 var(--bosluk-m) 0;
+}
+
+.detay dl dt {
+  font-weight: 600;
+}
+
+.detay dl dd {
+  margin: 0;
+}
+
+@media (min-width: 700px) {
+  .detay {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--bosluk-l);
+    align-items: start;
+  }
+
+  .detay h1,
+  .detay time,
+  .detay > p,
+  .detay > a {
+    grid-column: 1 / -1;
+  }
+
+  .detay figure {
+    grid-column: 1;
+  }
+
+  .detay dl {
+    grid-column: 2;
+  }
+}
+
+/* Formlar */
+form {
+  max-width: 480px;
+}
+
+form p {
+  margin: 0 0 var(--bosluk-m) 0;
+}
+
+label {
+  font-weight: 600;
+}
+
+input, select, textarea, button {
+  font: inherit;
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: var(--kose);
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+button[type="submit"] {
+  background: var(--renk-ana);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--kose);
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+button[type="submit"]:hover {
+  background: var(--renk-ana-koyu);
+}
+
+/* Boş bırakılan zorunlu alan, gönderim denendikten sonra kırmızı görünür */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--renk-hata);
+  background-color: #fdecec;
+}
