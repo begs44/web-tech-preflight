@@ -45,9 +45,9 @@ kampus-etkinlik/
 
 ## Yayına alma
 
-- Deploy: [Vercel](https://vercel.com) — Framework: `Other`
-- Sprint 1 canlı adres (proje: `web-tech-preflight`, Root Directory: `kampus-etkinlik/sprint1`): https://web-tech-preflight-beryl.vercel.app/
-- Sprint 2 canlı adres (proje: `kampus-etkinlik-sprint2`, Root Directory: `kampus-etkinlik/sprint2`): https://kampus-etkinlik-sprint2-beryl.vercel.app/
+- Deploy: [Vercel](https://vercel.com) — Framework: `Other`, tek proje: `web-tech-preflight`
+- Canlı adres: https://web-tech-preflight-beryl.vercel.app/ — Root Directory şu an `kampus-etkinlik/sprint2` olarak ayarlı, yani bu tek adres artık Sprint 2'yi gösteriyor.
+- Sprint 1'in canlı hali artık ayrı bir adreste durmuyor; Sprint 1'e geri dönmek istersen Root Directory'yi tekrar `kampus-etkinlik/sprint1` yapıp yeniden deploy etmen gerekir (aynı adres, farklı sprint).
 
 ## Git
 
@@ -61,5 +61,5 @@ git push --tags
 
 ## Teslim
 
-- Sprint 1: GitHub repo linki + `sprint-01` etiketi + https://web-tech-preflight-beryl.vercel.app/
-- Sprint 2: GitHub repo linki + `sprint-02` etiketi + https://kampus-etkinlik-sprint2-beryl.vercel.app/
+- Sprint 1: GitHub repo linki + `sprint-01` etiketi (o zamanki canlı adres artık Sprint 2'yi gösteriyor).
+- Sprint 2: GitHub repo linki + `sprint-02` etiketi + https://web-tech-preflight-beryl.vercel.app/
