@@ -6,11 +6,12 @@ Kampüs Etkinlikleri uygulaması. Sprint 1'de HTML iskeleti kuruldu, Sprint 2'de
 
 ```
 kampus-etkinlik/
-  index.html                 ← Sprint 1 teslimi (CSS yok, sprint-01 etiketi)
-  etkinlikler.html
-  etkinlik-detay.html
-  etkinlik-ekle.html
-  etkinlik-guncelle.html
+  sprint1/                    ← Sprint 1 teslimi (CSS yok, sprint-01 etiketi)
+    index.html
+    etkinlikler.html
+    etkinlik-detay.html
+    etkinlik-ekle.html
+    etkinlik-guncelle.html
   sprint2/                    ← Sprint 2 teslimi (CSS + responsive, sprint-02 etiketi)
     css/
       numaran.css
@@ -23,7 +24,7 @@ kampus-etkinlik/
   README.md
 ```
 
-## Sprint 1 — Sayfalar
+## Sprint 1 — Sayfalar (`sprint1/`)
 
 | Sayfa | İçerik |
 |---|---|
@@ -33,7 +34,7 @@ kampus-etkinlik/
 | `etkinlik-ekle.html` | Yeni etkinlik ekleme formu |
 | `etkinlik-guncelle.html` | Etkinlik güncelleme formu (alanlar dolu) |
 
-## Sprint 2 — CSS ve Responsive
+## Sprint 2 — CSS ve Responsive (`sprint2/`)
 
 - `sprint2/css/numaran.css`: `--no: 2416501083` → `--ton: mod(--no, 360) = 3` → `--renk-ana`/`--renk-zemin` bu tondan üretiliyor; son hane `3` → `--font: "Trebuchet MS"`.
 - Sprint 1'deki geçici çerçeveli etkinlik tablosu kalktı; etkinlikler artık `<section class="etkinlik-listesi"> > <article>` kartları (`display: grid`), mobilde tek sütun, geniş ekranda çok sütun.
@@ -45,7 +46,7 @@ kampus-etkinlik/
 ## Yayına alma
 
 - Deploy: [Vercel](https://vercel.com) — Framework: `Other`
-- Sprint 1 canlı adres: proje kökü (`kampus-etkinlik/`) — https://web-tech-preflight-beryl.vercel.app/
+- Sprint 1 canlı adres (Root Directory: `kampus-etkinlik/sprint1`): https://web-tech-preflight-beryl.vercel.app/
 - Sprint 2 için Vercel projesinde **Settings → Root Directory**'yi `kampus-etkinlik/sprint2` olarak güncelle (ya da yeni bir proje oluştur); değiştirmezsen canlı adres eski sprinti göstermeye devam eder.
 
 ## Git
