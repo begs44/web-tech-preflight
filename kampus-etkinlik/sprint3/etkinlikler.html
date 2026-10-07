@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etkinlikler · Kampüs Etkinlikleri</title>
+  <link rel="stylesheet" href="css/2416501083.css">
+  <script type="module" src="js/event-list.js"></script>
+</head>
+<body>
+  <header>
+    <p>Kampüs Etkinlikleri</p>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="etkinlikler.html" aria-current="page">Etkinlikler</a>
+      <a href="etkinlik-ekle.html">Ekle</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Tüm Etkinlikler</h1>
+
+    <form id="filtre-formu" class="filtre">
+      <div class="alan">
+        <label for="arama">Etkinlik ara</label>
+        <input type="search" id="arama" placeholder="atölye, kariyer..." autocomplete="off">
+      </div>
+      <div class="alan">
+        <label for="kategori-filtre">Kategori</label>
+        <select id="kategori-filtre">
+          <option value="">Tümü</option>
+        </select>
+      </div>
+    </form>
+    <p id="sonuc" class="sonuc" role="status"></p>
+
+    <section id="etkinlik-listesi" class="etkinlik-listesi"></section>
+    <noscript><p class="hata-kutusu">Etkinlikleri görmek için tarayıcınızda JavaScript açık olmalıdır.</p></noscript>
+
+    <h2>Ayın Programı</h2>
+    <div class="tablo-sarici">
+      <table>
+        <caption>Ayın Programı</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tarih</th>
+            <th scope="col">Etkinlik</th>
+            <th scope="col">Yer</th>
+          </tr>
+        </thead>
+        <tbody id="program-govdesi"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>Bengüsu İlhan · 2416501083 · 2026</p>
+  </footer>
+</body>
+</html>
