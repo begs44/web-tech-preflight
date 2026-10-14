@@ -64,7 +64,7 @@ Nav menüsü beş sayfada da aynı: `Ana Sayfa · Etkinlikler · Ekle · Güncel
 
 - Deploy: [Vercel](https://vercel.com) — Framework: `Other`
 - Root Directory: `kampus-etkinlik/sprint2`
-- Bu sprint'in teslim anındaki canlı adresi: https://web-tech-preflight-beryl.vercel.app/ — adres tek proje olduğu için artık Sprint 3'ü gösteriyor; bu sürüme `sprint-02` etiketinden ulaşılır.
+- Bu sprint'in teslim anındaki canlı adresi: https://web-tech-preflight-beryl.vercel.app/ — adres tek proje olduğu için her zaman en son teslim edilen sprinti gösterir; bu sprint'in sürümüne `sprint-02` etiketinden ulaşılır.
 
 ## Git
 
