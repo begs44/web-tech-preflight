@@ -72,7 +72,9 @@ function App() {
     return (
       <article className="kart" key={event.id}>
         <h3>{event.title}</h3>
-        <p>Kategori: {event.category}</p>
+        <p>
+          <span className="etiket">{event.category}</span>
+        </p>
         <time dateTime={event.date}>{formatDate(event.date)}</time>
         <p>Yer: {event.location}</p>
         <p>Kontenjan: {event.capacity} kişi</p>
@@ -108,12 +110,9 @@ function App() {
         {page === "home" && (
           <>
             <h1>Kampüs Etkinlikleri</h1>
-            <p>
-              Kampüs Etkinlikleri, üniversite içindeki seminer, atölye, söyleşi
-              ve sosyal etkinlikleri tek bir yerden takip etmenizi sağlayan
-              basit bir web uygulamasıdır. Yaklaşan etkinlikleri
-              görüntüleyebilir, tüm etkinlikler içinde arama yapabilir ve yeni
-              etkinlik ekleyebilirsiniz.
+            <p className="alt-yazi">
+              Fakültedeki seminer, atölye, söyleşi ve sosyal etkinlikleri tek
+              yerden takip edin.
             </p>
             <h2>Yaklaşan 2 etkinlik</h2>
             <section className="etkinlik-listesi">
@@ -130,6 +129,10 @@ function App() {
         {page === "events" && (
           <>
             <h1>Tüm Etkinlikler</h1>
+            <p className="alt-yazi">
+              Kampüste düzenlenecek tüm etkinlikler; arayın ya da kategoriye
+              göre süzün.
+            </p>
             <form className="filtre" onSubmit={(e) => e.preventDefault()}>
               <div className="alan">
                 <label htmlFor="arama">Etkinlik ara</label>
