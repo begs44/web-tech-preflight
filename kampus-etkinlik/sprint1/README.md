@@ -32,7 +32,7 @@ Beş sayfanın hepsinde ortak iskelet: `header` + `nav` + `main` + `footer`. Dos
 - Deploy: [Vercel](https://vercel.com) — Framework: `Other`, build komutu yok
 - Root Directory: `kampus-etkinlik/sprint1`
 - Ana sayfa `index.html` olmalı; adres doğrudan onu açar.
-- Canlı adres tek proje (`https://web-tech-preflight-beryl.vercel.app/`) olduğu için artık güncel sprinti (Sprint 3) gösteriyor; bu sürüme `sprint-01` etiketinden ulaşılır.
+- Canlı adres tek proje (`https://web-tech-preflight-beryl.vercel.app/`) olduğu için her zaman en son teslim edilen sprinti gösterir; bu sprint'in sürümüne `sprint-01` etiketinden ulaşılır.
 
 ## Git
 
