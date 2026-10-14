@@ -4,6 +4,7 @@
   --ton: mod(var(--no), 360);
   --renk-ana: hsl(var(--ton) 65% 38%);
   --renk-ana-koyu: hsl(var(--ton) 65% 28%);
+  --renk-ana-acik: hsl(var(--ton) 65% 92%);
   --renk-zemin: hsl(var(--ton) 30% 97%);
   --renk-yazi: #1a1a1a;
   --renk-cizgi: #ddd;
@@ -128,8 +129,27 @@ footer {
 .etkinlik-listesi > article {
   background: #fff;
   border: 1px solid var(--renk-cizgi);
+  border-top: 4px solid var(--renk-ana);
   border-radius: var(--kose);
   padding: var(--bosluk-m);
+}
+
+/* Kategori etiketi */
+.etiket {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--renk-ana-acik);
+  color: var(--renk-ana);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Sayfa başlığının altındaki kısa açıklama */
+.alt-yazi {
+  margin: calc(var(--bosluk-s) * -1) 0 var(--bosluk-m) 0;
+  color: #444;
+  font-size: 1.05rem;
 }
 
 .etkinlik-listesi > article h2,
