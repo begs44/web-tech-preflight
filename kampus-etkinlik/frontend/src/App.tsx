@@ -120,7 +120,7 @@ function App() {
               {upcoming.map(renderCard)}
             </section>
             <p>
-              <a href="#" onClick={link("events")}>
+              <a className="buton" href="#" onClick={link("events")}>
                 Tüm etkinlikleri gör →
               </a>
             </p>
