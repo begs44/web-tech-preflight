@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import EventDetail from "./components/events/EventDetail";
 import EventFilter from "./components/events/EventFilter";
 import EventList from "./components/events/EventList";
-import ProgramTable from "./components/events/ProgramTable";
 import EventForm from "./components/forms/EventForm";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
@@ -36,10 +35,9 @@ const pages: Record<PageName, { title: string; text?: string }> = {
 const categories = [...new Set(events.map((e) => e.category))];
 
 // date YYYY-MM-DD, time SS:DD olduğu için metin olarak sıralamak tarih sırasını verir.
-const sortedByDate = [...events].sort((a, b) =>
-  `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`),
-);
-const upcoming = sortedByDate.slice(0, 2);
+const upcoming = [...events]
+  .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`))
+  .slice(0, 2);
 
 function App() {
   const [page, setPage] = useState<PageName>("home");
@@ -114,7 +112,6 @@ function App() {
               onShowDetail={showDetail}
               emptyText="Aramanıza uygun etkinlik bulunamadı."
             />
-            <ProgramTable events={sortedByDate} />
           </>
         )}
 
