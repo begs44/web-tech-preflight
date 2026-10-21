@@ -2,7 +2,7 @@ https://web-tech-preflight-beryl.vercel.app/
 
 # Sprint 5 — React Bileşenleri
 
-Kampüs Etkinlikleri, Sprint 4'teki tek parça `App.tsx`'ten bileşenlere bölündü. Her parça kendi dosyasında, `props` ile veri alıyor ve olayları `callback` ile yukarı bildiriyor; state `App`'te kalıyor (lifting state). Ekran Sprint 4 ile aynı: sayfa geçişi hâlâ state ile (React Router Sprint 6'da), form sadece görünüm. `App.tsx` 349 satırdan 160 satıra indi.
+Kampüs Etkinlikleri, Sprint 4'teki tek parça `App.tsx`'ten bileşenlere bölündü. Her parça kendi dosyasında, `props` ile veri alıyor ve olayları `callback` ile yukarı bildiriyor; state `App`'te kalıyor (lifting state). Ekran Sprint 4 ile aynı: sayfa geçişi hâlâ state ile (React Router Sprint 6'da), form sadece görünüm. `App.tsx` 349 satırdan 157 satıra indi.
 
 ## Çalıştırma
 
@@ -27,7 +27,6 @@ App  (state: page, selectedId, searchText, category)
 │  ├─ EventList      events, onShowDetail, emptyText   (ana sayfa ve Etkinlikler)
 │  │   └─ EventCard  event, onShowDetail
 │  ├─ EventFilter    searchText, category, categories, onSearchChange, onCategoryChange
-│  ├─ ProgramTable   events
 │  ├─ EventDetail    event, onBack, onEdit
 │  └─ EventForm      categories, submitLabel, onSubmit  (Ekle ve Güncelle)
 └─ Footer            (props yok)
@@ -54,7 +53,7 @@ Veri aşağı (props), olay yukarı (callback). Arama kutusu ve liste aynı stat
 | `src/types/page.ts` | `PageName` tipi: uygulamadaki 5 sayfanın adı. |
 | `src/data/events.ts` | Tipe uyan 6 etkinlik kaydı. |
 | `src/utils/filter-events.ts` | DOM'a dokunmayan saf fonksiyonlar: `searchEvents`, `filterByCategory`, `findEventById`. |
-| `src/utils/format-date.ts` | Tarihi "12 Ekim 2026" biçimine çeviren `formatDate`; kart, detay ve tablo ortak kullanır. |
+| `src/utils/format-date.ts` | Tarihi "12 Ekim 2026" biçimine çeviren `formatDate`; kart ve detay ortak kullanır. |
 | `src/components/layout/Header.tsx` | Renkli bandın başlığı ve isteğe bağlı alt yazısı. |
 | `src/components/layout/Navigation.tsx` | Menü; tıklayınca `onNavigate` ile hangi sayfanın açılacağını `App`'e bildirir. |
 | `src/components/layout/Footer.tsx` | Sayfa altı bilgisi (ad, numara, yıl). |
@@ -62,13 +61,13 @@ Veri aşağı (props), olay yukarı (callback). Arama kutusu ve liste aynı stat
 | `src/components/events/EventList.tsx` | Etkinlik dizisini alıp her biri için `EventCard` çizer; dizi boşsa `emptyText` gösterir. |
 | `src/components/events/EventFilter.tsx` | Arama kutusu ve kategori seçimi; değerleri props ile alır, değişimi `onSearchChange`/`onCategoryChange` ile bildirir. |
 | `src/components/events/EventDetail.tsx` | Tek etkinliğin afişi, künyesi ve açıklaması; `onBack` ve `onEdit(id)` butonları. |
-| `src/components/events/ProgramTable.tsx` | "Ayın Programı" tablosu (şartnamedeki bileşenlere ek, Sprint 3'ten gelen özellik kaybolmasın diye). |
 | `src/components/forms/EventForm.tsx` | Ekle ve Güncelle'nin ortak formu; gönderimde sayfa yenilenmez, `onSubmit` çağrılır. |
 
 ## Sprint 4'ten farklar
 
 - `Header` artık sayfa başlığını (`h1`) ve alt yazıyı renkli bandın içinde gösterir, menü aynı bandın altındadır; sayfa içeriğinde ayrıca `h1` yoktur.
 - Kartta "Tarih: 12 Ekim 2026, 14:00" biçiminde saat de görünür; detay sayfasında "Etkinlik Künyesi" ve "Açıklama" başlıkları vardır.
+- Etkinlikler sayfasındaki "Ayın Programı" tablosu kaldırıldı; hocanın klasör yapısında ve örnek ekranlarında yok, sayfa sadece filtre ve kartlardan oluşuyor.
 - `EventForm` şartnamedeki tek `onSubmit` prop'una ek olarak kategori seçeneklerini `categories` ile alır ve buton yazısını `submitLabel` ile değiştirir (Güncelle sayfasında "Güncelle"); aksi halde Sprint 4'teki davranış kaybolurdu.
 
 ## Yayına alma ve teslim
