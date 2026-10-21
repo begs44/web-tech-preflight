@@ -1,28 +1,33 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import Navigation from "./components/layout/Navigation";
 import { events } from "./data/events";
 import type { CampusEvent, Category } from "./types/campus-event";
+import type { PageName } from "./types/page";
+import { formatDate } from "./utils/format-date";
 import {
   filterByCategory,
   findEventById,
   searchEvents,
 } from "./utils/filter-events";
 
-type PageName = "home" | "events" | "detail" | "add" | "update";
+const SITE_NAME = "Kampüs Etkinlikleri";
 
-const menuItems: { page: PageName; label: string }[] = [
-  { page: "home", label: "Ana Sayfa" },
-  { page: "events", label: "Etkinlikler" },
-  { page: "add", label: "Ekle" },
-];
-
-const pageTitles: Record<PageName, string> = {
-  home: "Ana Sayfa",
-  events: "Tüm Etkinlikler",
-  detail: "Etkinlik Detayı",
-  add: "Etkinlik Ekle",
-  update: "Etkinlik Güncelle",
+const pages: Record<PageName, { title: string; text?: string }> = {
+  home: {
+    title: SITE_NAME,
+    text: "Fakültedeki seminer, atölye, söyleşi ve sosyal etkinlikleri tek yerden takip edin.",
+  },
+  events: {
+    title: "Tüm Etkinlikler",
+    text: "Kampüste düzenlenecek tüm etkinlikler; arayın ya da kategoriye göre süzün.",
+  },
+  detail: { title: "Etkinlik Detayı" },
+  add: { title: "Etkinlik Ekle" },
+  update: { title: "Etkinlik Güncelle" },
 };
 
 const categories = [...new Set(events.map((e) => e.category))];
@@ -32,13 +37,6 @@ const sortedByDate = [...events].sort((a, b) =>
   `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`),
 );
 const upcoming = sortedByDate.slice(0, 2);
-
-const formatDate = (date: string) =>
-  new Date(`${date}T00:00:00`).toLocaleDateString("tr-TR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 
 function App() {
   const [page, setPage] = useState<PageName>("home");
@@ -62,10 +60,14 @@ function App() {
   const title =
     page === "detail"
       ? (selected?.title ?? "Etkinlik bulunamadı")
-      : pageTitles[page];
+      : pages[page].title;
+  const text =
+    page === "update" && selected
+      ? `Seçili etkinlik: ${selected.title}`
+      : pages[page].text;
 
   useEffect(() => {
-    document.title = `Kampüs Etkinlikleri — ${title}`;
+    document.title = title === SITE_NAME ? SITE_NAME : `${SITE_NAME} — ${title}`;
   }, [title]);
 
   function renderCard(event: CampusEvent) {
@@ -90,30 +92,14 @@ function App() {
 
   return (
     <>
-      <header className="site-baslik">
-        <p>Kampüs Etkinlikleri</p>
-        <nav className="menu">
-          {menuItems.map((item) => (
-            <a
-              key={item.page}
-              href="#"
-              aria-current={page === item.page ? "page" : undefined}
-              onClick={link(item.page)}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </header>
+      <div className="site-ust">
+        <Header title={title} text={text} />
+        <Navigation current={page} onNavigate={go} />
+      </div>
 
       <main>
         {page === "home" && (
           <>
-            <h1>Kampüs Etkinlikleri</h1>
-            <p className="alt-yazi">
-              Fakültedeki seminer, atölye, söyleşi ve sosyal etkinlikleri tek
-              yerden takip edin.
-            </p>
             <h2>Yaklaşan 2 etkinlik</h2>
             <section className="etkinlik-listesi">
               {upcoming.map(renderCard)}
@@ -128,11 +114,6 @@ function App() {
 
         {page === "events" && (
           <>
-            <h1>Tüm Etkinlikler</h1>
-            <p className="alt-yazi">
-              Kampüste düzenlenecek tüm etkinlikler; arayın ya da kategoriye
-              göre süzün.
-            </p>
             <form className="filtre" onSubmit={(e) => e.preventDefault()}>
               <div className="alan">
                 <label htmlFor="arama">Etkinlik ara</label>
@@ -201,27 +182,20 @@ function App() {
         )}
 
         {page === "detail" && !selected && (
-          <>
-            <h1>Etkinlik bulunamadı</h1>
-            <div className="hata-kutusu" role="alert">
-              <p>Seçilen etkinlik bulunamadı.</p>
-            </div>
+          <div className="hata-kutusu" role="alert">
+            <p>Seçilen etkinlik bulunamadı.</p>
             <p>
               <a href="#" onClick={link("events")}>
                 ← Listeye dön
               </a>
             </p>
-          </>
+          </div>
         )}
 
         {page === "detail" && selected && (
           <article
             className={selected.image ? "detay detay--afisli" : "detay"}
           >
-            <h1>{selected.title}</h1>
-            <time dateTime={`${selected.date}T${selected.time}`}>
-              {formatDate(selected.date)}, {selected.time}
-            </time>
             {selected.image && (
               <figure>
                 <img
@@ -261,12 +235,6 @@ function App() {
 
         {(page === "add" || page === "update") && (
           <>
-            <h1>{page === "add" ? "Etkinlik Ekle" : "Etkinlik Güncelle"}</h1>
-            {page === "update" && selected && (
-              <p className="ipucu">
-                Seçili etkinlik: <strong>{selected.title}</strong>
-              </p>
-            )}
             <form className="form" onSubmit={(e) => e.preventDefault()}>
               <div className="alan">
                 <label htmlFor="title">Etkinlik Adı</label>
@@ -339,9 +307,7 @@ function App() {
         )}
       </main>
 
-      <footer>
-        <p>Bengüsu İlhan · 2416501083 · 2026</p>
-      </footer>
+      <Footer />
     </>
   );
 }

@@ -37,27 +37,30 @@ img {
   display: block;
 }
 
-/* Header ve menü */
-header {
+/* Başlık bandı: Header (başlık + alt yazı) ve Navigation (menü) aynı renkli bandın içinde */
+.site-ust {
   background: var(--renk-ana);
   color: #fff;
   padding: var(--bosluk-m);
 }
 
-header p {
+.site-baslik h1 {
   margin: 0 0 var(--bosluk-s) 0;
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 1.75rem;
 }
 
-header nav {
+.site-baslik p {
+  margin: 0 0 var(--bosluk-s) 0;
+}
+
+.menu {
   display: flex;
   flex-wrap: wrap;
   gap: var(--bosluk-s);
-  margin-left: -0.75rem;
+  margin: var(--bosluk-m) 0 0 -0.75rem;
 }
 
-header nav a {
+.menu a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
@@ -65,13 +68,13 @@ header nav a {
   border-radius: var(--kose);
 }
 
-header nav a:hover,
-header nav a:focus {
+.menu a:hover,
+.menu a:focus {
   text-decoration: underline;
 }
 
 /* Açık sayfanın linki beyaz kutuda */
-header nav a[aria-current="page"] {
+.menu a[aria-current="page"] {
   background: #fff;
   color: var(--renk-ana);
 }
@@ -143,13 +146,6 @@ footer {
   color: var(--renk-ana);
   font-size: 0.85rem;
   font-weight: 600;
-}
-
-/* Sayfa başlığının altındaki kısa açıklama */
-.alt-yazi {
-  margin: calc(var(--bosluk-s) * -1) 0 var(--bosluk-m) 0;
-  color: #444;
-  font-size: 1.05rem;
 }
 
 .etkinlik-listesi > article h2,
