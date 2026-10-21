@@ -225,9 +225,10 @@ dl dd {
   margin: 0;
 }
 
-.detay time {
-  display: block;
-  margin-bottom: var(--bosluk-m);
+.kunye h2,
+.aciklama h2 {
+  margin: 0 0 var(--bosluk-s) 0;
+  font-size: 1.25rem;
 }
 
 /* Afişi olan etkinlikte afiş solda, künye sağda; afişsizde tek sütun */
@@ -239,18 +240,17 @@ dl dd {
     align-items: start;
   }
 
-  .detay--afisli h1,
-  .detay--afisli time,
-  .detay--afisli > p {
-    grid-column: 1 / -1;
-  }
-
   .detay--afisli figure {
     grid-column: 1;
   }
 
-  .detay--afisli dl {
+  .detay--afisli .kunye {
     grid-column: 2;
+  }
+
+  .detay--afisli .aciklama,
+  .detay--afisli .detay-linkler {
+    grid-column: 1 / -1;
   }
 }
 
