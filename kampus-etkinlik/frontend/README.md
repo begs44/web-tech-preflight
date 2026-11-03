@@ -65,7 +65,7 @@ src/
 ## Yayına alma ve teslim
 
 - Vercel ayarı: **Root Directory** = `kampus-etkinlik/frontend`, **Framework Preset** = `Vite`. Push sonrası Vercel kendisi yeniden yayınlar.
-- Canlı adres: https://bengusuilhan-frontend.vercel.app/ (eski `web-tech-preflight-beryl.vercel.app` adresi buraya yönlendirir)
+- Canlı adres: https://bengusuilhan-frontend.vercel.app/
 
 ```bash
 git add .
