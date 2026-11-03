@@ -55,7 +55,11 @@ function App() {
         text: "Kampüste düzenlenecek tüm etkinlikler; arayın ya da kategoriye göre süzün.",
       };
     }
-    if (detail) return event ? { title: event.title } : NOT_FOUND;
+    if (detail) {
+      return event
+        ? { title: event.title, text: `${event.category} · ${event.location}` }
+        : NOT_FOUND;
+    }
     if (isAdmin) return { title: "Etkinlik Yönetimi" };
     if (isAdd) return { title: "Etkinlik Ekle" };
     if (edit) {

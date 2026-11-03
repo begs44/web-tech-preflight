@@ -35,7 +35,9 @@ function EventDetail({ event }: EventDetailProps) {
         <p>{event.description}</p>
       </section>
       <p className="detay-linkler">
-        <Link to="/events">← Listeye dön</Link>
+        <Link className="buton" to="/events">
+          ← Listeye dön
+        </Link>
         <Link className="buton" to={`/admin/${event.id}/edit`}>
           Bu etkinliği güncelle
         </Link>
