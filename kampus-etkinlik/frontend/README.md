@@ -1,4 +1,4 @@
-https://web-tech-preflight-beryl.vercel.app/
+https://bengusuilhan-frontend.vercel.app/
 
 # Sprint 6 + Vize — Router, Context ve Yönetim
 
@@ -65,7 +65,7 @@ src/
 ## Yayına alma ve teslim
 
 - Vercel ayarı: **Root Directory** = `kampus-etkinlik/frontend`, **Framework Preset** = `Vite`. Push sonrası Vercel kendisi yeniden yayınlar.
-- Canlı adres: https://web-tech-preflight-beryl.vercel.app/ (`bengusuilhan-frontend.vercel.app` adı alınınca burası güncellenecek)
+- Canlı adres: https://bengusuilhan-frontend.vercel.app/ (eski `web-tech-preflight-beryl.vercel.app` adresi buraya yönlendirir)
 
 ```bash
 git add .
