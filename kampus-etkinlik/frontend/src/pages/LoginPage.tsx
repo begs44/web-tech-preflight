@@ -26,7 +26,6 @@ function LoginPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Giriş Yap</h2>
       {done && (
         <p className="basari" role="status">
           Giriş bilgileri geçerli. (Sunucu olmadığı için gerçek giriş yapılmaz.)
@@ -66,12 +65,12 @@ function LoginPage() {
           )}
         </div>
         <p>
-          <button type="submit">Giriş Yap</button>
+          <button type="submit">Giriş yap</button>
         </p>
       </form>
       <p className="form-linkler">
-        <Link to="/register">Hesabın yok mu? Kayıt ol</Link>
         <Link to="/forgot-password">Şifremi unuttum</Link>
+        <Link to="/register">Hesabın yok mu? Kayıt ol</Link>
       </p>
     </>
   );

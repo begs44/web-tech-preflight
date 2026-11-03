@@ -364,6 +364,10 @@ button[type="submit"]:hover {
   grid-template-columns: 1fr;
   gap: var(--bosluk-m);
   max-width: none;
+  background: #fff;
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
 }
 
 .filtre .alan {
@@ -392,10 +396,13 @@ button[type="submit"]:hover {
   gap: var(--bosluk-m);
 }
 
-.form-linkler a,
-.tablo a {
+.form-linkler a {
   color: var(--renk-ana);
   font-weight: 600;
+}
+
+.tablo .buton {
+  padding: 0.4rem 1rem;
 }
 
 /* Yönetim tablosu: işlem düğmeleri */

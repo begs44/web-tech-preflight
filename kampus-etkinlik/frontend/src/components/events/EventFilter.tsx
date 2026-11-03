@@ -22,7 +22,7 @@ function EventFilter({
         <input
           type="search"
           id="arama"
-          placeholder="atölye, kariyer..."
+          placeholder="Örn. atölye, kariyer"
           autoComplete="off"
           value={searchText}
           onChange={(e) => onSearchChange(e.target.value)}

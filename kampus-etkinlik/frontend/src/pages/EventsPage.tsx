@@ -19,7 +19,6 @@ function EventsPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Tüm Etkinlikler</h2>
       <EventFilter
         searchText={searchText}
         category={category}

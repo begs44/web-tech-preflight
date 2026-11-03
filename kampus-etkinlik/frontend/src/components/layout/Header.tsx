@@ -1,11 +1,13 @@
-function Header() {
+interface HeaderProps {
+  title: string;
+  text?: string;
+}
+
+function Header({ title, text }: HeaderProps) {
   return (
     <header className="site-baslik">
-      <h1>Kampüs Etkinlikleri</h1>
-      <p>
-        Fakültedeki seminer, atölye, söyleşi ve sosyal etkinlikleri tek yerden
-        takip edin.
-      </p>
+      <h1>{title}</h1>
+      {text && <p>{text}</p>}
     </header>
   );
 }

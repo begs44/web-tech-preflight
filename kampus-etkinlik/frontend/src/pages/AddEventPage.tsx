@@ -12,16 +12,13 @@ function AddEventPage() {
   }, []);
 
   return (
-    <>
-      <h2 className="bolum-baslik">Etkinlik Ekle</h2>
-      <EventForm
-        submitText="Kaydet"
-        onSubmit={(data) => {
-          addEvent(data);
-          navigate("/admin");
-        }}
-      />
-    </>
+    <EventForm
+      submitText="Kaydet"
+      onSubmit={(data) => {
+        addEvent(data);
+        navigate("/admin");
+      }}
+    />
   );
 }
 

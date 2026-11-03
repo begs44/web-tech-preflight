@@ -25,7 +25,6 @@ function ForgotPasswordPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Şifremi Unuttum</h2>
       {done && (
         <p className="basari" role="status">
           Sıfırlama bağlantısı {email.trim()} adresine gönderilmiş gibi
@@ -50,7 +49,7 @@ function ForgotPasswordPage() {
           )}
         </div>
         <p>
-          <button type="submit">Sıfırlama Bağlantısı Gönder</button>
+          <button type="submit">Sıfırlama bağlantısı gönder</button>
         </p>
       </form>
       <p className="form-linkler">

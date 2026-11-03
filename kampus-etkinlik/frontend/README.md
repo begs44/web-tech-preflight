@@ -52,7 +52,7 @@ src/
 ├─ context/EventsContext.tsx  EventsProvider ve useEvents
 ├─ pages/                   10 sayfa bileşeni
 ├─ components/
-│  ├─ layout/               Header, Navigation (NavLink), Footer
+│  ├─ layout/               Header (başlığı App sayfaya göre verir), Navigation (NavLink), Footer
 │  ├─ events/               EventCard, EventList, EventFilter, EventDetail
 │  └─ forms/EventForm.tsx   Ekle ve Güncelle'nin ortak formu
 ├─ data/events.ts           Başlangıç etkinlikleri

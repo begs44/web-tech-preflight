@@ -19,10 +19,9 @@ function AdminPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Etkinlik Yönetimi</h2>
       <p>
         <Link className="buton" to="/admin/add">
-          + Yeni etkinlik ekle
+          + Yeni etkinlik
         </Link>
       </p>
 
@@ -34,9 +33,8 @@ function AdminPage() {
             <thead>
               <tr>
                 <th scope="col">Etkinlik</th>
-                <th scope="col">Kategori</th>
                 <th scope="col">Tarih</th>
-                <th scope="col">Kontenjan</th>
+                <th scope="col">Kategori</th>
                 <th scope="col">İşlemler</th>
               </tr>
             </thead>
@@ -44,15 +42,13 @@ function AdminPage() {
               {events.map((event) => (
                 <tr key={event.id}>
                   <td data-baslik="Etkinlik">{event.title}</td>
+                  <td data-baslik="Tarih">{formatDate(event.date)}</td>
                   <td data-baslik="Kategori">{event.category}</td>
-                  <td data-baslik="Tarih">
-                    {formatDate(event.date)}, {event.time}
-                  </td>
-                  <td data-baslik="Kontenjan">{event.capacity}</td>
                   <td data-baslik="İşlemler">
                     <span className="islemler">
-                      <Link to={`/events/${event.id}`}>Detay</Link>
-                      <Link to={`/admin/${event.id}/edit`}>Güncelle</Link>
+                      <Link className="buton" to={`/admin/${event.id}/edit`}>
+                        Düzenle
+                      </Link>
                       <button
                         type="button"
                         className="buton-sil"

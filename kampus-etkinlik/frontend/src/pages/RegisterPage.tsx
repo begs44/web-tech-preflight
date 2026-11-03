@@ -61,7 +61,6 @@ function RegisterPage() {
 
   return (
     <>
-      <h2 className="bolum-baslik">Kayıt Ol</h2>
       {done && (
         <p className="basari" role="status">
           Kayıt bilgileri geçerli. (Sunucu olmadığı için hesap oluşturulmaz.)
@@ -73,7 +72,7 @@ function RegisterPage() {
         {input("password", "Şifre", "password")}
         {input("confirm", "Şifre (tekrar)", "password")}
         <p>
-          <button type="submit">Kayıt Ol</button>
+          <button type="submit">Kayıt ol</button>
         </p>
       </form>
       <p className="form-linkler">

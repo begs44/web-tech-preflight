@@ -30,17 +30,14 @@ function EditEventPage() {
   };
 
   return (
-    <>
-      <h2 className="bolum-baslik">Etkinlik Güncelle</h2>
-      <EventForm
-        initialData={initialData}
-        submitText="Güncelle"
-        onSubmit={(data) => {
-          updateEvent(event.id, data);
-          navigate("/admin");
-        }}
-      />
-    </>
+    <EventForm
+      initialData={initialData}
+      submitText="Güncelle"
+      onSubmit={(data) => {
+        updateEvent(event.id, data);
+        navigate("/admin");
+      }}
+    />
   );
 }
 

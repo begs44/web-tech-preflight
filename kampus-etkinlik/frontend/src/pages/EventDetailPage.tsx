@@ -17,12 +17,7 @@ function EventDetailPage() {
 
   if (!event) return <NotFoundPage />;
 
-  return (
-    <>
-      <h2 className="bolum-baslik">{event.title}</h2>
-      <EventDetail event={event} />
-    </>
-  );
+  return <EventDetail event={event} />;
 }
 
 export default EventDetailPage;
