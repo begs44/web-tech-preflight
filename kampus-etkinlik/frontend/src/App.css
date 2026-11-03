@@ -225,8 +225,8 @@ dl dd {
   margin: 0;
 }
 
-.kunye h2,
-.aciklama h2 {
+.kunye h3,
+.aciklama h3 {
   margin: 0 0 var(--bosluk-s) 0;
   font-size: 1.25rem;
 }
@@ -309,6 +309,8 @@ input, select, textarea, button {
 
 input[type="text"],
 input[type="search"],
+input[type="email"],
+input[type="password"],
 input[type="number"],
 input[type="date"],
 input[type="time"],
@@ -377,6 +379,88 @@ button[type="submit"]:hover {
 .sonuc {
   margin: var(--bosluk-s) 0 0 0;
   color: #444;
+}
+
+/* Sayfa başlığı ve form altı bağlantılar */
+.bolum-baslik {
+  margin: 0 0 var(--bosluk-m) 0;
+}
+
+.form-linkler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-m);
+}
+
+.form-linkler a,
+.tablo a {
+  color: var(--renk-ana);
+  font-weight: 600;
+}
+
+/* Yönetim tablosu: işlem düğmeleri */
+.islemler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--bosluk-s) var(--bosluk-m);
+}
+
+.buton-sil {
+  background: var(--renk-hata);
+  color: #fff;
+  border: none;
+  border-radius: var(--kose);
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 36px;
+}
+
+.buton-sil:hover,
+.buton-sil:focus {
+  filter: brightness(0.85);
+}
+
+/* Telefonda tablo, her satır bir kart olacak şekilde alt alta dizilir */
+@media (max-width: 699px) {
+  .tablo {
+    min-width: 0;
+  }
+
+  .tablo thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .tablo,
+  .tablo tbody,
+  .tablo tr,
+  .tablo td {
+    display: block;
+    width: 100%;
+  }
+
+  .tablo tr {
+    border: 1px solid var(--renk-cizgi);
+    border-radius: var(--kose);
+    margin-bottom: var(--bosluk-m);
+    padding: var(--bosluk-s);
+    background: #fff;
+  }
+
+  .tablo td {
+    border: none;
+    padding: 0.3rem 0;
+  }
+
+  .tablo td[data-baslik]::before {
+    content: attr(data-baslik) ": ";
+    font-weight: 600;
+  }
 }
 
 /* Hata ve başarı kutuları (form mesajı, detay hatası, uyarılar) */

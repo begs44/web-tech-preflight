@@ -1,152 +1,48 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import EventDetail from "./components/events/EventDetail";
-import EventFilter from "./components/events/EventFilter";
-import EventList from "./components/events/EventList";
-import EventForm from "./components/forms/EventForm";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Navigation from "./components/layout/Navigation";
-import { events } from "./data/events";
-import type { Category } from "./types/campus-event";
-import type { PageName } from "./types/page";
-import {
-  filterByCategory,
-  findEventById,
-  searchEvents,
-} from "./utils/filter-events";
-
-const SITE_NAME = "Kampüs Etkinlikleri";
-
-const pages: Record<PageName, { title: string; text?: string }> = {
-  home: {
-    title: SITE_NAME,
-    text: "Fakültedeki seminer, atölye, söyleşi ve sosyal etkinlikleri tek yerden takip edin.",
-  },
-  events: {
-    title: "Tüm Etkinlikler",
-    text: "Kampüste düzenlenecek tüm etkinlikler; arayın ya da kategoriye göre süzün.",
-  },
-  detail: { title: "Etkinlik Detayı" },
-  add: { title: "Etkinlik Ekle" },
-  update: { title: "Etkinlik Güncelle" },
-};
-
-const categories = [...new Set(events.map((e) => e.category))];
-
-// date YYYY-MM-DD, time SS:DD olduğu için metin olarak sıralamak tarih sırasını verir.
-const upcoming = [...events]
-  .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`))
-  .slice(0, 2);
+import AddEventPage from "./pages/AddEventPage";
+import AdminPage from "./pages/AdminPage";
+import EditEventPage from "./pages/EditEventPage";
+import EventDetailPage from "./pages/EventDetailPage";
+import EventsPage from "./pages/EventsPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
-  const [page, setPage] = useState<PageName>("home");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [searchText, setSearchText] = useState("");
-  const [category, setCategory] = useState<Category | "">("");
+  const { pathname } = useLocation();
 
-  function go(next: PageName, id: string | null = null) {
-    setPage(next);
-    setSelectedId(id);
-    window.scrollTo(0, 0);
-  }
-
-  const showDetail = (id: string) => go("detail", id);
-  const filtered = filterByCategory(searchEvents(events, searchText), category);
-  const selected = selectedId ? findEventById(events, selectedId) : undefined;
-  const title =
-    page === "detail"
-      ? (selected?.title ?? "Etkinlik bulunamadı")
-      : pages[page].title;
-  const text =
-    page === "update" && selected
-      ? `Seçili etkinlik: ${selected.title}`
-      : pages[page].text;
-
+  // Sayfa değişince başa dön.
   useEffect(() => {
-    document.title = `${SITE_NAME} — ${page === "home" ? "Ana Sayfa" : title}`;
-  }, [page, title]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
       <div className="site-ust">
-        <Header title={title} text={text} />
-        <Navigation current={page} onNavigate={go} />
+        <Header />
+        <Navigation />
       </div>
 
       <main>
-        {page === "home" && (
-          <>
-            <h2>Yaklaşan 2 etkinlik</h2>
-            <EventList events={upcoming} onShowDetail={showDetail} />
-            <p>
-              <a
-                className="buton"
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  go("events");
-                }}
-              >
-                Tüm etkinlikleri gör →
-              </a>
-            </p>
-          </>
-        )}
-
-        {page === "events" && (
-          <>
-            <EventFilter
-              searchText={searchText}
-              category={category}
-              categories={categories}
-              onSearchChange={setSearchText}
-              onCategoryChange={setCategory}
-            />
-            <p className="sonuc" role="status">
-              {filtered.length} etkinlik listeleniyor.
-            </p>
-            <h2 className="sr-only">Etkinlik listesi</h2>
-            <EventList
-              events={filtered}
-              onShowDetail={showDetail}
-              emptyText="Aramanıza uygun etkinlik bulunamadı."
-            />
-          </>
-        )}
-
-        {page === "detail" && selected && (
-          <EventDetail
-            event={selected}
-            onBack={() => go("events")}
-            onEdit={(id) => go("update", id)}
-          />
-        )}
-
-        {page === "detail" && !selected && (
-          <div className="hata-kutusu" role="alert">
-            <p>Seçilen etkinlik bulunamadı.</p>
-            <p>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  go("events");
-                }}
-              >
-                ← Listeye dön
-              </a>
-            </p>
-          </div>
-        )}
-
-        {(page === "add" || page === "update") && (
-          <EventForm
-            categories={categories}
-            submitLabel={page === "add" ? "Kaydet" : "Güncelle"}
-            onSubmit={() => window.scrollTo(0, 0)}
-          />
-        )}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/:id" element={<EventDetailPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/add" element={<AddEventPage />} />
+          <Route path="/admin/:id/edit" element={<EditEventPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
 
       <Footer />
