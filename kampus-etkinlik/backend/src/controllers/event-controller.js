@@ -7,6 +7,31 @@ export function getEvents(req, res) {
   res.json(list);
 }
 
+// POST /events  (title, category ve date zorunlu)
+export function createEvent(req, res) {
+  const { title, category, capacity, date, time, location, description } =
+    req.body ?? {};
+
+  if (!title || !category || !date) {
+    return res.status(400).json({
+      error: { message: "title, category and date are required" },
+    });
+  }
+
+  const newEvent = {
+    id: `event-${Date.now()}`,
+    title,
+    category,
+    capacity: Number(capacity) || 0,
+    date,
+    time: time ?? "",
+    location: location ?? "",
+    description: description ?? "",
+  };
+  events.push(newEvent);
+  res.status(201).json(newEvent);
+}
+
 // GET /events/:id
 export function getEventById(req, res) {
   const event = events.find((e) => e.id === req.params.id);
