@@ -65,7 +65,7 @@ Tanımsız adreslerde de `404` ve `{ "error": { "message": "Route not found" } }
 ```json
 {
   "id": "event-2",
-  "title": "React ile İlk Uygulama Atölyesi",
+  "title": "Sıfırdan React Uygulama Atölyesi",
   "category": "Atölye",
   "capacity": 25,
   "date": "2026-11-21",

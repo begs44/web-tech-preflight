@@ -2,18 +2,18 @@
 export const events = [
   {
     id: "event-1",
-    title: "Yapay Zekâ ile Kod Yazma Semineri",
+    title: "Yazılımda Yapay Zekâ Dönemi Semineri",
     category: "Seminer",
     capacity: 80,
     date: "2026-11-18",
     time: "13:30",
-    location: "Mühendislik Fakültesi Konferans Salonu",
+    location: "E8 Konferans Salonu",
     description:
       "Yapay zekâ araçlarıyla küçük programların nasıl yazılıp test edildiğini canlı örneklerle gösteren seminer.",
   },
   {
     id: "event-2",
-    title: "React ile İlk Uygulama Atölyesi",
+    title: "Sıfırdan React Uygulama Atölyesi",
     category: "Atölye",
     capacity: 25,
     date: "2026-11-21",
@@ -24,18 +24,18 @@ export const events = [
   },
   {
     id: "event-3",
-    title: "Siber Güvenliğin Bilinmeyenleri Söyleşisi",
+    title: "Siber Dünyada Güvende Kalmak Söyleşisi",
     category: "Söyleşi",
     capacity: 60,
     date: "2026-11-25",
     time: "14:00",
-    location: "B Blok Amfi 2",
+    location: "E8 Konferans Salonu",
     description:
       "Güvenlik uzmanıyla parola, oltalama ve veri sızıntıları üzerine günlük hayattan örnekler konuşuyoruz.",
   },
   {
     id: "event-4",
-    title: "Veri Tabanına Giriş Atölyesi",
+    title: "SQL ile Veri Sorgulama Atölyesi",
     category: "Atölye",
     capacity: 30,
     date: "2026-12-02",
@@ -46,7 +46,7 @@ export const events = [
   },
   {
     id: "event-5",
-    title: "Bahar Şenliği Hazırlık Buluşması",
+    title: "Bahar Şenliği Planlama Buluşması",
     category: "Sosyal",
     capacity: 120,
     date: "2026-12-05",
@@ -57,12 +57,12 @@ export const events = [
   },
   {
     id: "event-6",
-    title: "Mezunlarla Kahve Sohbeti",
+    title: "Mezunlarla Kahve ve Kariyer Sohbeti",
     category: "Sosyal",
     capacity: 40,
     date: "2026-12-10",
     time: "16:30",
-    location: "Kütüphane Kafe",
+    location: "Cam Kafe",
     description:
       "Farklı sektörlerde çalışan mezunlarla rahat bir ortamda staj ve iş hayatı hakkında sohbet ediyoruz.",
   },
