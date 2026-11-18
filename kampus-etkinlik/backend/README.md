@@ -149,7 +149,7 @@ Kurallar schema'da, işlemler modelde, istek/yanıt controller'da: her dosyanın
 | 1 | GET `/health` | 200, `status: ok` ve `student` |
 | 2 | GET `/events` | 200, 6 kayıt (seed sonrası), `_id`, `createdAt`, `updatedAt` |
 | 3 | GET `/events/{{eventId}}` | 200, listedeki etkinlik |
-| 4 | GET `/events/yok` | 404, `error.message` |
+| 4 | GET `/events/111111` | 404, `error.message` |
 | 5 | POST `/events` (tam gövde) | 201, `_id` ve `createdAt` |
 | 6 | POST `/events` (sadece `title`) | 400, `error.message` |
 
