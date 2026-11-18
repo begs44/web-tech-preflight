@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Event } from "../models/event-model.js";
-import { events } from "../data/events.js";
 
 // GET /events  (isteğe bağlı ?category=Atölye)
 export async function getEvents(req, res, next) {
@@ -13,29 +12,17 @@ export async function getEvents(req, res, next) {
   }
 }
 
-// POST /events  (title, category ve date zorunlu)
-export function createEvent(req, res) {
-  const { title, category, capacity, date, time, location, description } =
-    req.body ?? {};
-
-  if (!title || !category || !date) {
-    return res.status(400).json({
-      error: { message: "title, category and date are required" },
-    });
+// POST /events  (doğrulamayı schema yapar, controller 400'e çevirir)
+export async function createEvent(req, res, next) {
+  try {
+    const event = await Event.create(req.body ?? {});
+    res.status(201).json(event);
+  } catch (err) {
+    if (err.name === "ValidationError") {
+      return res.status(400).json({ error: { message: err.message } });
+    }
+    next(err);
   }
-
-  const newEvent = {
-    id: `event-${Date.now()}`,
-    title,
-    category,
-    capacity: Number(capacity) || 0,
-    date,
-    time: time ?? "",
-    location: location ?? "",
-    description: description ?? "",
-  };
-  events.push(newEvent);
-  res.status(201).json(newEvent);
 }
 
 // GET /events/:id  (geçersiz id de 404, 500 değil)
