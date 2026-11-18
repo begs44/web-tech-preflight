@@ -18,16 +18,18 @@ npm run dev
 
 Üretim derlemesi için `npm run build`.
 
-### Backend (Sprint 7)
+### Backend (Sprint 7–8)
 
 ```bash
 cd kampus-etkinlik/backend
 npm install
 cp .env.example .env     # Windows PowerShell: Copy-Item .env.example .env
+                         # MONGODB_URI'ye kendi MongoDB adresini yaz
+npm run seed             # 6 örnek etkinlik
 npm run dev              # http://localhost:3000
 ```
 
-Endpoint'ler: `GET /health`, `GET /events`, `GET /events/:id`, `POST /events`. REST sözleşmesi ve Postman adımları için `kampus-etkinlik/backend/README.md`.
+Veri MongoDB'de (Mongoose) durur. Endpoint'ler: `GET /health`, `GET /events`, `GET /events/:id`, `POST /events`. REST sözleşmesi ve Postman adımları için `kampus-etkinlik/backend/README.md`.
 
 ## Route listesi
 
@@ -52,7 +54,7 @@ kampus-etkinlik/
 ├─ sprint2/    CSS ve responsive tasarım
 ├─ sprint3/    JavaScript ve DOM
 ├─ frontend/   Vite · TypeScript · React · React Router  ← yayınlanan ürün
-└─ backend/    Node · Express · bellek içi veri  (Sprint 7, localhost:3000)
+└─ backend/    Node · Express · MongoDB/Mongoose  (Sprint 7–8, localhost:3000)
 ```
 
 Dosya ayrıntıları için `kampus-etkinlik/frontend/README.md` ve `kampus-etkinlik/backend/README.md`.
