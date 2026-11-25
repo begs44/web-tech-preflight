@@ -4,12 +4,14 @@ import {
   deleteEvent,
   getEventById,
   getEvents,
+  getUpcomingEvents,
   updateEvent,
 } from "../controllers/event-controller.js";
 
 const router = Router();
 
 router.get("/", getEvents);
+router.get("/upcoming", getUpcomingEvents); // /:id'den önce, yoksa "upcoming" id sanılır
 router.get("/:id", getEventById);
 router.post("/", createEvent);
 router.patch("/:id", updateEvent);
