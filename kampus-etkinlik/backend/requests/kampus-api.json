@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Kampüs API",
-    "description": "Sprint 8 — Kampüs Etkinlikleri Express REST API + MongoDB. Sunucu: http://localhost:3000. Önce npm run seed.",
+    "description": "Sprint 8–9 — Kampüs Etkinlikleri Express REST API + MongoDB. Sunucu: http://localhost:3000. Önce npm run seed.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -154,7 +154,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"capacity\": 30,\n  \"date\": \"2026-12-01\",\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
+          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"capacity\": 30,\n  \"date\": \"01-12-2026\",\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
           "options": {
             "raw": {
               "language": "json"
